@@ -7,7 +7,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "../minilibx_macos/mlx.h"
+# include "mlx.h"
 
 typedef struct    s_data
 {
@@ -18,8 +18,8 @@ typedef struct    s_data
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	//int            width;
-	//int            height;
+	int            width;
+	int            height;
 }                t_data;
 
 typedef struct	s_var
@@ -31,7 +31,6 @@ typedef struct	s_var
 }				t_var;
 
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		key_event(int key, void *params);
 int		ft_exit(void);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -44,7 +43,7 @@ char	*ft_strndup(char *src, int n);
 void	ft_fill_tab(char **tab, const char *s, char c, int nb_words);
 char	**ft_split(char *s, char c);
 void	ft_final_map(char *file, t_var *var);
-void	affiche_tab(t_var *var);
 int		ft_malloc_map(t_var *var);
+void	draw_line(t_data *mlx);
 
 #endif

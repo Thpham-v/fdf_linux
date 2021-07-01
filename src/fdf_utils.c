@@ -6,12 +6,12 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:51:37 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/06/25 04:17:39 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/01 03:03:24 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include "../inc/get_next_line.h"
+#include "fdf.h"
+#include "get_next_line.h"
 
 int		key_event(int key, void *params)
 {
@@ -29,7 +29,8 @@ int		ft_exit(void)
 
 void	my_mlx_pixel_put(t_data *mlx, int x, int y, int color)
 {
-	mlx->addr[y * (mlx->line_length / 4) + x] = color;
+	if ((x >= 0 && x < mlx->width) && (y >= 0 && y < mlx->height))
+		mlx->addr[y * mlx->line_length / 4 + x] = color;
 }
 
 int		ft_getnbr(char *str)

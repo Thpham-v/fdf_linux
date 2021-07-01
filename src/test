@@ -1,8 +1,0 @@
-on a un char * que lon doit parsser et modifier avec split qui nous retourne
-char **.
-
-on doit malloc un nouveau tableau de int donc int[][] 
-
-une fct qui parsse avec getnext line qui compte le nombre de ligne et de colone (mot)
-
-une fonction qui malloc le tableau d'int

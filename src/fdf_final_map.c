@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_utils_2.c                                      :+:      :+:    :+:   */
+/*   fdf_final_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:49:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/06/29 06:39:18 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/01 01:49:55 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include "../inc/get_next_line.h"
+#include "fdf.h"
+#include "get_next_line.h"
 
 void	ft_read_line(char *file, t_var *var)
 {
@@ -83,23 +83,4 @@ void	ft_final_map(char *file, t_var *var)
 		free(line);
 		i++;
 		}
-}
-
-void	affiche_tab(t_var *var)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < var->nb_l)
-	{
-		j = 0;
-		while (j < var->nb_c)
-		{
-			printf("%d  ", var->tab[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
 }

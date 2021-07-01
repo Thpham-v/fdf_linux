@@ -6,12 +6,12 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 04:17:59 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/06/29 00:22:41 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/01 01:46:32 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include "../inc/get_next_line.h"
+#include "fdf.h"
+#include "get_next_line.h"
 
 void	ft_free_tab(char **tab, int size)
 {

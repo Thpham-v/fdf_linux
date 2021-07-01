@@ -6,12 +6,12 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:57:52 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/06/25 05:03:12 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/01 01:46:36 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include "../inc/get_next_line.h"
+#include "fdf.h"
+#include "get_next_line.h"
 
 int		ft_strlen(char *str)
 {
