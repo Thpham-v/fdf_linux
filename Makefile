@@ -10,7 +10,7 @@ SRCS			=	fdf.c			\
 					ft_split.c
 SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
 OBJS			=	$(SRC_BASENAME:.c=.o)
-CC				=	gcc -fsanitize=address
+CC				=	gcc 
 FLAGS			=	-Wall -Wextra -I $(MLX_DIR) -I $(INC_DIR)
 
 .c.o		:

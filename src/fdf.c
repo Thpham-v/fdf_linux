@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:52:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/01 04:27:57 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/02 06:52:20 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,88 @@
 
 void	draw_line(t_data *mlx)
 {
-	int	hheight;
-	int	wwidth;
 	int x1=0,	y1=0;
-	int x2=4,	y2=14;
+	int x2=100,	y2=400;
 	
-	float	dx = abs(x2 - x1);
-	float	dy = abs(y2 - y1);
-	float	m = dy/dx;
+	int	x = x1;
+	int y = y1;
 	
-	int x = 0;
-	float y = 0;
+	float dx = abs(x2 - x1);
+	float dy = abs(y2 - y1);
+	float m = dy / dx;
+	float e = 0;
 	
-	hheight = 0;
-	wwidth = 800;
-	while (x < wwidth)
+	if(x < x2 && y < y2)
 	{
-		y = m * x + y1 + 0.5;
+		if (x2 > y2)
+		{
+			while (x < x2)
+			{
+				printf("a\n");
+				my_mlx_pixel_put(mlx, x, y, 255);
+				e = e - m;
+				if (e < -0.5)
+				{
+					y++;
+					e = e + 1.0;
+				}
+				x++;
+			}
+		}
+		else
+		{
+			while (y < y2)
+			{
+				printf("b\n");
+				my_mlx_pixel_put(mlx, x, y, 255);
+				e = e - m;
+				if (e < -0.5)
+				{
+					x++;
+					e = e + 1.0;
+				}
+				y++;
+			}
+		}
+	}
+	/*while (y < y2)
+	{
+		printf("b\n");
 		my_mlx_pixel_put(mlx, x, y, 255);
+		e = e - m;
+		if (e < -0.5)
+		{
+			y++;
+			e = e + 1.0;
+		}
 		x++;
 	}
+	while (x > x2)
+	{
+		printf("c\n");
+		my_mlx_pixel_put(mlx, x, y, 255);
+		e = e - m;
+		if (e < -0.5)
+		{
+			y--;
+			e = e + 1.0;
+		}
+		x--;
+	}
+	while (y > y2)
+	{
+		printf("d\n");
+		my_mlx_pixel_put(mlx, x, y, 255);
+		e = e - m;
+		if (e < -0.5)
+		{
+			y--;
+			e = e + 1.0;
+		}
+		x--;
+	}*/
+	my_mlx_pixel_put(mlx, x1, y1, 0XFF0000);
+	my_mlx_pixel_put(mlx, x2, y2, 0XFF0000);
 }
 
 int		main(/*int argc, char **argv*/)
