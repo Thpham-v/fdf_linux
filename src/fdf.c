@@ -15,7 +15,7 @@
 
 void	draw_line(t_data *mlx)
 {
-	int x1=0,	y1=0;
+	int x1=50,	y1=50;
 	int x2=100,	y2=400;
 	
 	int	x = x1;
@@ -23,7 +23,6 @@ void	draw_line(t_data *mlx)
 	
 	float dx = abs(x2 - x1);
 	float dy = abs(y2 - y1);
-	float m = dy / dx;
 	float e = 0;
 	
 	if(x < x2 && y < y2)
@@ -32,13 +31,12 @@ void	draw_line(t_data *mlx)
 		{
 			while (x < x2)
 			{
-				printf("a\n");
 				my_mlx_pixel_put(mlx, x, y, 255);
-				e = e - m;
-				if (e < -0.5)
+				e = e - 2 * dy;
+				if (e < 0)
 				{
 					y++;
-					e = e + 1.0;
+					e = e + 2 * dx;
 				}
 				x++;
 			}
@@ -47,13 +45,13 @@ void	draw_line(t_data *mlx)
 		{
 			while (y < y2)
 			{
-				printf("b\n");
 				my_mlx_pixel_put(mlx, x, y, 255);
-				e = e - m;
-				if (e < -0.5)
+				e = e - 2 * dx;
+				if (e < 0)
 				{
 					x++;
-					e = e + 1.0;
+					e = e + 2 * dy;
+					printf("x = %d\n", x);
 				}
 				y++;
 			}
@@ -61,7 +59,6 @@ void	draw_line(t_data *mlx)
 	}
 	/*while (y < y2)
 	{
-		printf("b\n");
 		my_mlx_pixel_put(mlx, x, y, 255);
 		e = e - m;
 		if (e < -0.5)
@@ -73,7 +70,6 @@ void	draw_line(t_data *mlx)
 	}
 	while (x > x2)
 	{
-		printf("c\n");
 		my_mlx_pixel_put(mlx, x, y, 255);
 		e = e - m;
 		if (e < -0.5)
@@ -85,7 +81,6 @@ void	draw_line(t_data *mlx)
 	}
 	while (y > y2)
 	{
-		printf("d\n");
 		my_mlx_pixel_put(mlx, x, y, 255);
 		e = e - m;
 		if (e < -0.5)
