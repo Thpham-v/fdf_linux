@@ -7,7 +7,10 @@ SRCS			=	fdf.c			\
 					fdf_final_map.c	\
 					get_next_line_utils.c	\
 					get_next_line.c			\
-					ft_split.c
+					ft_split.c				\
+					draw_line.c				\
+					draw_line_bis.c			
+					
 SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
 OBJS			=	$(SRC_BASENAME:.c=.o)
 CC				=	gcc 

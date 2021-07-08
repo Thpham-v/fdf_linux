@@ -30,6 +30,18 @@ typedef struct	s_var
 	int			**tab;
 }				t_var;
 
+typedef struct	s_pos
+{
+	int x1;
+	int	y1;
+	int x2;
+	int	y2;	
+	int	x;
+	int y;
+	float dx;
+	float dy;
+	float e;
+}				t_pos;
 
 int		key_event(int key, void *params);
 int		ft_exit(void);
@@ -44,6 +56,13 @@ void	ft_fill_tab(char **tab, const char *s, char c, int nb_words);
 char	**ft_split(char *s, char c);
 void	ft_final_map(char *file, t_var *var);
 int		ft_malloc_map(t_var *var);
-void	draw_line(t_data *mlx);
+void	draw_line(t_pos pos, t_data *mlx);
+void	haut_gauche(t_pos pos, t_data *mlx);
+void	bas_droite(t_pos pos, t_data *mlx);
+void	bas_gauche(t_pos pos, t_data *mlx);
+void	haut_droite(t_pos pos, t_data *mlx);
+void	haut_gauche_bis(t_pos pos, t_data *mlx);
+
+
 
 #endif
