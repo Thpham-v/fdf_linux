@@ -62,6 +62,7 @@ void	bas_droite(t_pos pos, t_data *mlx);
 void	bas_gauche(t_pos pos, t_data *mlx);
 void	haut_droite(t_pos pos, t_data *mlx);
 void	haut_gauche_bis(t_pos pos, t_data *mlx);
+void	draw_tab(t_data *mlx, t_var var);
 
 
 

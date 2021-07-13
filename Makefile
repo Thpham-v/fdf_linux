@@ -9,7 +9,8 @@ SRCS			=	fdf.c			\
 					get_next_line.c			\
 					ft_split.c				\
 					draw_line.c				\
-					draw_line_bis.c			
+					draw_line_bis.c			\
+					draw_tab.c
 					
 SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
 OBJS			=	$(SRC_BASENAME:.c=.o)
