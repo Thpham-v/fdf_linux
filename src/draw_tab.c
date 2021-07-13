@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:53:04 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/12 18:49:55 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/13 17:15:29 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	draw_tab(t_data *mlx, t_var var)
 	pos.x2 = 0;
 	pos.y1 = 0;
 	pos.y2 = 0;
-	while (j < var.nb_l - 1)
+	while (j < var.nb_l)
 	{
 		i = 0;
 		pos.x2 = 0;
@@ -39,6 +39,28 @@ void	draw_tab(t_data *mlx, t_var var)
 		}
 		pos.y1 += 20;
 		pos.y2 += 20;
+		j++;
+	}
+	i = 0;
+	j = 0;
+	pos.x1 = 0;
+	pos.x2 = 0;
+	pos.y1 = 0;
+	pos.y2 = 0;
+	while (j < var.nb_c)
+	{
+		i = 0;
+		pos.y1 = 0;
+		pos.y2 = 0;
+		while (i < var.nb_l - 1)
+		{
+			pos.y2 += 20;
+			draw_line(pos, mlx);
+			pos.y1 += 20;
+			i++;	
+		}
+		pos.x1 += 35;
+		pos.x2 += 35;
 		j++;
 	}
 }

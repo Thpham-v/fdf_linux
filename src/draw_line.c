@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:16:55 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/12 18:45:02 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/07/13 19:31:19 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void	draw_line(t_pos pos, t_data *mlx)
 {	
-	
-
 	pos.x = pos.x1;
 	pos.y = pos.y1;
 	
@@ -38,16 +36,16 @@ void	draw_line(t_pos pos, t_data *mlx)
 	
 void	haut_gauche(t_pos pos, t_data *mlx)
 {
-	if (pos.x2 > pos.y2)
+	if (pos.dx > pos.dy)
 	{
-		while (pos.x < pos.x2)
+		while (pos.x <= pos.x2)
 		{
 			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
-			pos.e = pos.e - 2 * pos.dy;
+			pos.e -= 2 * pos.dy;
 			if (pos.e < 0)
 			{
 				pos.y++;
-				pos.e = pos.e + 2 * pos.dx;
+				pos.e += 2 * pos.dx;
 			}
 			pos.x++;
 		}
@@ -58,41 +56,29 @@ void	haut_gauche(t_pos pos, t_data *mlx)
 
 void	bas_droite(t_pos pos, t_data *mlx)
 {
-	if (pos.x2 > pos.y2)
+	if (pos.dx < pos.dy)
 	{
-		while (pos.y > pos.y2)
+		while (pos.y >= pos.y2)
 		{
 			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
-			pos.e -= 2 * pos.dy;
+			pos.e -= 2 * pos.dx;
 			if (pos.e < 0)
 			{
-				pos.y--;
-				pos.e += 2 * pos.dx;
+				pos.x--;
+				pos.e += 2 * pos.dy;
 			}
-			pos.x--;
+			pos.y--;
 		}
 	}
 	else
-	{
-		while (pos.x > pos.x2)
-		{
-			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
-			pos.e -= 2 * pos.dy;
-			if (pos.e < 0)
-			{
-				pos.y--;
-				pos.e += 2 * pos.dx;
-			}
-			pos.x--;
-		}
-	}
+		bas_droite_bis(pos, mlx);	
 }
 
 void	bas_gauche(t_pos pos, t_data *mlx)
 {
-	if (pos.x2 > pos.y2 || pos.y1 == pos.y2)
+	if (pos.dx > pos.dy)
 	{
-		while (pos.x < pos.x2)
+		while (pos.x <= pos.x2)
 		{
 			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
 			pos.e -= 2 * pos.dy;
@@ -105,26 +91,14 @@ void	bas_gauche(t_pos pos, t_data *mlx)
 		}
 	}
 	else
-	{
-		while (pos.y >= pos.y2)
-		{
-			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
-			pos.e -= 2 * pos.dx;
-			if (pos.e < 0)
-			{
-				pos.x++;
-				pos.e += 2 * pos.dy;
-			}
-			pos.y--;
-		}
-	}
+		bas_gauche_bis(pos, mlx);
 }
 
 void	haut_droite(t_pos pos, t_data *mlx)
 {
-	if (pos.x2 > pos.y2)
+	if (pos.dx > pos.dy)
 	{
-		while (pos.x > pos.x2)
+		while (pos.x >= pos.x2)
 		{
 			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
 			pos.e -= 2 * pos.dy;
@@ -137,17 +111,5 @@ void	haut_droite(t_pos pos, t_data *mlx)
 		}
 	}
 	else
-	{
-		while (pos.y <= pos.y2)
-		{
-			my_mlx_pixel_put(mlx, pos.x, pos.y, 255);
-			pos.e -= 2 * pos.dy;
-			if (pos.e < 0)
-			{
-				pos.y++;
-				pos.e += 2 * pos.dx;
-			}
-			pos.x--;
-		}
-	}
+		haut_droite_bis(pos, mlx);
 }
