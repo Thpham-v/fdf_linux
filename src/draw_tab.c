@@ -6,14 +6,19 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:53:04 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/13 17:15:29 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:17:28 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "get_next_line.h"
 
-void	draw_tab(t_data *mlx, t_var var)
+void	get_iso(t_pos *pos)
+{
+
+}
+
+/*void	draw_tab(t_data *mlx, t_var var)
 {
 	t_pos pos;
 	int i;
@@ -61,6 +66,45 @@ void	draw_tab(t_data *mlx, t_var var)
 		}
 		pos.x1 += 35;
 		pos.x2 += 35;
+		j++;
+	}
+}*/
+
+void	draw_x(t_var *var)
+{
+	
+}	
+
+void	draw_y(t_var *var)
+{
+	
+}
+
+void	draw_tab(t_var *var)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	while (i < var->nb_c)
+	{
+		j = 0;
+		while (j < var->nb_l)
+		{
+			draw_x(var);
+			j++;
+		}
+		i++;
+	}
+	j = 0;
+	while (j < var->nb_l)
+	{
+		i = 0;
+		while (i < var->nb_c)
+		{
+			draw_y(var);
+			i++;
+		}
 		j++;
 	}
 }

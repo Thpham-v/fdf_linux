@@ -6,17 +6,18 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:16:55 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/13 19:31:19 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/08/14 18:54:10 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "get_next_line.h"
 
-void	draw_line(t_pos pos, t_data *mlx)
+void	draw_line(t_data *mlx, t_pos pos1, t_pos pos2)
 {	
-	pos.x = pos.x1;
-	pos.y = pos.y1;
+	
+	pos.x = 
+	pos.y = 
 	
 	pos.dx = abs(pos.x2 - pos.x1);
 	pos.dy = abs(pos.y2 - pos.y1);
@@ -30,8 +31,8 @@ void	draw_line(t_pos pos, t_data *mlx)
 		bas_gauche(pos, mlx);
 	if (pos.x > pos.x2 && pos.y <= pos.y2)
 		haut_droite(pos, mlx);
-	my_mlx_pixel_put(mlx, pos.x1, pos.y1, 0XFF0000);
-	my_mlx_pixel_put(mlx, pos.x2, pos.y2, 0XFF0000);
+	my_mlx_pixel_put(mlx, , , 0XFF0000);
+	my_mlx_pixel_put(mlx, , , 0XFF0000);
 }
 	
 void	haut_gauche(t_pos pos, t_data *mlx)

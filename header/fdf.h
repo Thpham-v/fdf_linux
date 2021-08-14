@@ -27,15 +27,12 @@ typedef struct	s_var
 	int			nb_l;
 	int			nb_c;
 	int			fd;
+	int			size;
 	int			**tab;
 }				t_var;
 
 typedef struct	s_pos
 {
-	int x1;
-	int	y1;
-	int x2;
-	int	y2;	
 	int	x;
 	int y;
 	float dx;
@@ -65,7 +62,11 @@ void	bas_gauche(t_pos pos, t_data *mlx);
 void	bas_gauche_bis(t_pos pos, t_data *mlx);
 void	haut_droite(t_pos pos, t_data *mlx);
 void	haut_droite_bis(t_pos pos, t_data *mlx);
-void	draw_tab(t_data *mlx, t_var var);
+void	draw_tab(t_data *mlx, t_var *var, t_pos pos);
 void	draw_tab_bis(t_data *mlx, t_var var);
+void	get_iso(t_pos *pos);
+void	draw_x(t_data *mlx, t_var *var, t_pos pos);
+void	draw_y(t_data *mlx, t_var *var, t_pos pos);
+
 
 #endif
