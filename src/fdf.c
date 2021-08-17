@@ -16,23 +16,25 @@
 int		main(int argc, char **argv)
 {
 	t_data	mlx;
-	t_pos	pos;
 	t_var	var;
 	
-	argc = 0;
-	ft_read_line(argv[1], &var);
-	ft_malloc_map(&var);
-	ft_final_map(argv[1], &var);
-	mlx.width = 800;
-	mlx.height = 600;
-	mlx.mlx_ptr = mlx_init();
-	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, 800, 600, "FDF");
-	mlx.img_ptr = mlx_new_image(mlx.mlx_ptr, 800, 600);
-	mlx.addr = (int *)mlx_get_data_addr(mlx.img_ptr, &mlx.bits_per_pixel, &mlx.line_length,
-			&mlx.endian);
-	draw_tab(&mlx, &var, pos);
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img_ptr, 0, 0);
-	mlx_hook(mlx.win_ptr, 17, 0, ft_exit, (void *)0);
-	mlx_key_hook(mlx.win_ptr, key_event, (void *)0);
-	mlx_loop(mlx.mlx_ptr);
+	if ((ft_read_line(argv[1], argc, &var) != -1))
+	{
+		ft_malloc_map(&var);
+		ft_final_map(argv[1], &var);
+		//mlx_get_screen_size();
+		mlx.width = 800;
+		mlx.height = 600;
+		mlx.mlx_ptr = mlx_init();
+		mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.width, mlx.height, "FDF");
+		mlx.img_ptr = mlx_new_image(mlx.mlx_ptr, mlx.width, mlx.height);
+		mlx.addr = (int *)mlx_get_data_addr(mlx.img_ptr, &mlx.bits_per_pixel, &mlx.line_length,
+				&mlx.endian);
+		draw_tab(&mlx, &var);
+		printf("pyutin\n");
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img_ptr, 0, 0);
+		mlx_hook(mlx.win_ptr, 17, 0, ft_exit, (void *)0);
+		mlx_key_hook(mlx.win_ptr, key_event, (void *)0);
+		mlx_loop(mlx.mlx_ptr);
+	}
 }

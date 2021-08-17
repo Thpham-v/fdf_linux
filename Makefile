@@ -3,8 +3,8 @@ MLX_DIR			=	./minilibx_macos/
 SRC_DIR			=	./src/
 INC_DIR			=	./header/
 SRCS			=	fdf.c			\
-					fdf_utils.c		\
 					fdf_final_map.c	\
+					fdf_utils.c		\
 					get_next_line_utils.c	\
 					get_next_line.c			\
 					ft_split.c				\

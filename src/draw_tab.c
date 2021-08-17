@@ -13,98 +13,78 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-void	get_iso(t_pos *pos)
+t_pos	get_iso(t_pos pos)
 {
+	t_pos iso;
 
+	iso.x = (pos.x - pos.y);
+	iso.y = (pos.x + pos.y) / 2;
+	return (iso);
 }
 
-/*void	draw_tab(t_data *mlx, t_var var)
+void	draw_x(t_data *mlx, t_var *var)
 {
-	t_pos pos;
-	int i;
-	int j;
+	t_pos	pos1;
+	t_pos	pos2;
+	t_pos	iso1;
+	t_pos	iso2;
 
-	i = 0;
-	j = 0;
-	pos.x1 = 0;
-	pos.x2 = 0;
-	pos.y1 = 0;
-	pos.y2 = 0;
-	while (j < var.nb_l)
-	{
-		i = 0;
-		pos.x2 = 0;
-		pos.x1 = 0;
-		while (i < var.nb_c - 1)
-		{
-			pos.x2 += 35;
-			draw_line(pos, mlx);
-			pos.x1 += 35;
-			i++;	
-		}
-		pos.y1 += 20;
-		pos.y2 += 20;
-		j++;
-	}
-	i = 0;
-	j = 0;
-	pos.x1 = 0;
-	pos.x2 = 0;
-	pos.y1 = 0;
-	pos.y2 = 0;
-	while (j < var.nb_c)
-	{
-		i = 0;
-		pos.y1 = 0;
-		pos.y2 = 0;
-		while (i < var.nb_l - 1)
-		{
-			pos.y2 += 20;
-			draw_line(pos, mlx);
-			pos.y1 += 20;
-			i++;	
-		}
-		pos.x1 += 35;
-		pos.x2 += 35;
-		j++;
-	}
-}*/
-
-void	draw_x(t_var *var)
-{
-	
+	pos1.x = var->i * var->size;
+	pos1.y = var->j * var->size;
+	pos2.x = pos1.x;
+	pos2.y = (var->j + 1) * var->size;
+	iso1 = get_iso(pos1);
+	iso2 = get_iso(pos2);
+	iso1.y -= (var->tab[var->j][var->i]) * 3;
+	iso2.y -= (var->tab[var->j + 1][var->i]) * 3;
+	draw_line(&mlx, iso1, iso2);
 }	
 
-void	draw_y(t_var *var)
+void	draw_y(t_data *mlx, t_var *var)
 {
-	
+	t_pos	pos1;
+	t_pos	pos2;
+	t_pos	iso1;
+	t_pos	iso2;
+
+	pos1.x = var->i * var->size;
+	pos1.y = var->j * var->size;
+	pos2.x = (var->i + 1) * var->size;
+	pos2.y = pos1.y;
+	iso1 = get_iso(pos1);
+	iso2 = get_iso(pos2);
+	iso1.y -= (var->tab[var->j][var->i] * 3);
+	iso2.y -= (var->tab[var->j][var->i + 1] * 3);
+	draw_line(&mlx, iso1, iso2);
 }
 
-void	draw_tab(t_var *var)
+void	draw_tab(t_data *mlx, t_var *var)
 {
-	int i;
-	int j;
-	
-	i = 0;
-	while (i < var->nb_c)
+	var->size = 3;
+	var->i = 0;
+	printf("%d c\n", var->nb_c);
+	while (var->i < var->nb_c)
 	{
-		j = 0;
-		while (j < var->nb_l)
+		var->j = 0;
+		while (var->j < var->nb_l)
 		{
-			draw_x(var);
-			j++;
+			draw_x(&mlx, &var);
+			var->j++;
+			printf("valeur de j = %d\n", var->j);
 		}
-		i++;
+		var->i++;
 	}
-	j = 0;
-	while (j < var->nb_l)
+	var->j = 0;
+	printf("%d l\n", var->nb_l);
+	while (var->j < var->nb_l)
 	{
-		i = 0;
-		while (i < var->nb_c)
+		var->i = 0;
+		while (var->i < var->nb_c)
 		{
-			draw_y(var);
-			i++;
+			draw_y(&mlx, &var);
+			var->i++;
+			printf("valeur de i = %d\n", var->i);
 		}
-		j++;
+		var->j++;
 	}
 }

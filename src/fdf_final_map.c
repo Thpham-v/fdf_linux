@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-void	ft_read_line(char *file, t_var *var)
+int		ft_read_line(char *file, int argc, t_var *var)
 {
 	int		ret;
 	int		nb_c_temp;
@@ -24,6 +24,8 @@ void	ft_read_line(char *file, t_var *var)
 	var->fd = 0;
 	ret = 1;
 	var->fd = open(file, O_RDONLY);
+	if (var->fd == -1)
+		return (-1);
 	while (ret)
 	{
 		ret = get_next_line(var->fd, &line);
@@ -36,6 +38,7 @@ void	ft_read_line(char *file, t_var *var)
 		}
 			free(line);
 	}
+	return (ret);
 }
 
 int		ft_malloc_map(t_var *var)

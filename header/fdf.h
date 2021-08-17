@@ -29,6 +29,8 @@ typedef struct	s_var
 	int			fd;
 	int			size;
 	int			**tab;
+	int			i;
+	int			j;
 }				t_var;
 
 typedef struct	s_pos
@@ -43,7 +45,7 @@ typedef struct	s_pos
 int		key_event(int key, void *params);
 int		ft_exit(void);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	ft_read_line(char *file, t_var *var);
+int		ft_read_line(char *file, int argc, t_var *var);
 int		ft_count_words(char *s, char c);
 void	ft_create_tab(char *s, char c, char **tab);
 int		ft_getnbr(char *str);
@@ -53,20 +55,15 @@ void	ft_fill_tab(char **tab, const char *s, char c, int nb_words);
 char	**ft_split(char *s, char c);
 void	ft_final_map(char *file, t_var *var);
 int		ft_malloc_map(t_var *var);
-void	draw_line(t_pos pos, t_data *mlx);
-void	haut_gauche(t_pos pos, t_data *mlx);
-void	haut_gauche_bis(t_pos pos, t_data *mlx);
-void	bas_droite(t_pos pos, t_data *mlx);
-void	bas_droite_bis(t_pos pos, t_data *mlx);
-void	bas_gauche(t_pos pos, t_data *mlx);
-void	bas_gauche_bis(t_pos pos, t_data *mlx);
-void	haut_droite(t_pos pos, t_data *mlx);
-void	haut_droite_bis(t_pos pos, t_data *mlx);
-void	draw_tab(t_data *mlx, t_var *var, t_pos pos);
+void	draw_line(t_data *mlx, t_pos pos1, t_pos pos2);
+void	haut_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx);
+void	bas_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx);
+void	bas_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx);
+void	haut_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx);
+void	draw_tab(t_data *mlx, t_var *var);
 void	draw_tab_bis(t_data *mlx, t_var var);
-void	get_iso(t_pos *pos);
-void	draw_x(t_data *mlx, t_var *var, t_pos pos);
-void	draw_y(t_data *mlx, t_var *var, t_pos pos);
-
+t_pos	get_iso(t_pos pos);
+void	draw_x(t_data *mlx, t_var *var);
+void	draw_y(t_data *mlx, t_var *var);
 
 #endif
