@@ -1,5 +1,5 @@
 NAME			=	fdf
-MLX_DIR			=	./minilibx_macos/
+MLX_DIR			=	./minilibx-linux/
 SRC_DIR			=	./src/
 INC_DIR			=	./header/
 SRCS			=	fdf.c			\
@@ -14,7 +14,7 @@ SRCS			=	fdf.c			\
 					
 SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
 OBJS			=	$(SRC_BASENAME:.c=.o)
-CC				=	gcc 
+CC				=	clang 
 FLAGS			=	-Wall -Wextra -I $(MLX_DIR) -I $(INC_DIR)
 
 .c.o		:
@@ -24,7 +24,7 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 			make -C $(MLX_DIR)
-			$(CC) $(FLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJS) -L $(MLX_DIR)
+			$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L $(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext
 			@echo [$(NAME)] : Created !
 
 clean		:

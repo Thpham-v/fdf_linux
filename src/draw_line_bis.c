@@ -17,7 +17,7 @@ void	haut_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx)
 {
 	while (pos1.y <= pos2.y)
 	{
-		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 255);
+		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 0X00ffb1);
 		pos1.e = pos1.e - 2 * pos1.dx;
 		if (pos1.e < 0)
 		{
@@ -32,7 +32,7 @@ void	bas_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx)
 {
 	while (pos1.x >= pos2.x)
 	{
-		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 255);
+		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 0X00ffb1);
 		pos1.e -= 2 * pos1.dy;
 			if (pos1.e < 0)
 			{
@@ -47,7 +47,7 @@ void	bas_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx)
 {
 	while (pos1.y >= pos2.y)
 	{
-		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 255);
+		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 0X00ffb1);
 		pos1.e -= 2 * pos1.dx;
 		if (pos1.e < 0)
 		{
@@ -62,7 +62,7 @@ void	haut_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx)
 {
 	while (pos1.y <= pos2.y)
 	{
-		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 255);
+		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 0X00ffb1);
 		pos1.e -= 2 * pos1.dx;
 		if (pos1.e < 0)
 		{

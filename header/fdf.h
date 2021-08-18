@@ -1,6 +1,6 @@
 #ifndef FDF_H
 # define FDF_H
-# define ESC 53
+# define ESC 65307
 
 # include <unistd.h>
 # include <stdio.h>
@@ -29,6 +29,8 @@ typedef struct	s_var
 	int			fd;
 	int			size;
 	int			**tab;
+	int			startx;
+	int			starty;
 	int			i;
 	int			j;
 }				t_var;
@@ -65,5 +67,7 @@ void	draw_tab_bis(t_data *mlx, t_var var);
 t_pos	get_iso(t_pos pos);
 void	draw_x(t_data *mlx, t_var *var);
 void	draw_y(t_data *mlx, t_var *var);
+void	init_display(t_data *mlx, t_var *var);
+t_pos	get_cart(t_pos iso);
 
 #endif
