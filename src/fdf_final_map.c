@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		ft_read_line(char *file, int argc, t_var *var)
+int		ft_read_line(char *file, t_var *var)
 {
 	int		ret;
 	int		nb_c_temp;
@@ -82,6 +82,7 @@ void	ft_final_map(char *file, t_var *var)
 				var->tab[i][j] = ft_getnbr(tab_char[j]);
 				j++;
 			}
+			ft_free_tab(tab_char);
 		}
 		free(line);
 		i++;

@@ -67,16 +67,16 @@ void	draw_y(t_data *mlx, t_var *var)
 	draw_line(mlx, iso1, iso2);
 }
 
-void	draw_tab(t_data *mlx, t_var *var)
+void	draw_tab(t_var *var)
 {
-	init_display(mlx, var);
+	init_display(var);
 	var->i = 0;
 	while (var->i < var->nb_c)
 	{
 		var->j = 0;
 		while (var->j < var->nb_l - 1)
 		{
-			draw_x(mlx, var);
+			draw_x(&var->mlx, var);
 			var->j++;
 		}
 		var->i++;
@@ -87,7 +87,7 @@ void	draw_tab(t_data *mlx, t_var *var)
 		var->i = 0;
 		while (var->i < var->nb_c - 1)
 		{
-			draw_y(mlx, var);
+			draw_y(&var->mlx, var);
 			var->i++;
 		}
 		var->j++;

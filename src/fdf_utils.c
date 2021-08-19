@@ -13,17 +13,10 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		key_event(int key, void *params)
+int		key_event(int key, t_var *var)
 {
-	params = NULL;
 	if (key == ESC)
-		exit(0);
-	return (0);
-}
-
-int		ft_exit(void)
-{
-	exit(0);
+		exit_all(var);
 	return (0);
 }
 

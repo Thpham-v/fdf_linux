@@ -13,12 +13,14 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-void	ft_free_tab(char **tab, int size)
+void	ft_free_tab(char **tab)
 {
 	int i;
 
 	i = 0;
-	while (i <= size)
+	if (!tab)
+		return ;
+	while (tab[i])
 	{
 		free(tab[i]);
 		i++;
@@ -88,7 +90,7 @@ void	ft_fill_tab(char **tab, const char *s, char c, int nb_words)
 		tab[i] = ft_strndup((char *)&s[j], word_len);
 		if (!tab[i])
 		{
-			ft_free_tab(tab, nb_words);
+			ft_free_tab(tab);
 			break ;
 		}
 		j += word_len;

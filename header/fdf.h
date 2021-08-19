@@ -24,6 +24,7 @@ typedef struct    s_data
 
 typedef struct	s_var
 {
+	t_data		mlx;
 	int			nb_l;
 	int			nb_c;
 	int			fd;
@@ -44,14 +45,14 @@ typedef struct	s_pos
 	float e;
 }				t_pos;
 
-int		key_event(int key, void *params);
-int		ft_exit(void);
+int		key_event(int key, t_var *var);
+int		exit_all(t_var *var);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		ft_read_line(char *file, int argc, t_var *var);
+int		ft_read_line(char *file, t_var *var);
 int		ft_count_words(char *s, char c);
 void	ft_create_tab(char *s, char c, char **tab);
 int		ft_getnbr(char *str);
-void	ft_free_tab(char **tab, int size);
+void	ft_free_tab(char **tab);
 char	*ft_strndup(char *src, int n);
 void	ft_fill_tab(char **tab, const char *s, char c, int nb_words);
 char	**ft_split(char *s, char c);
@@ -62,12 +63,13 @@ void	haut_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx);
 void	bas_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx);
 void	bas_gauche_bis(t_pos pos1, t_pos pos2, t_data *mlx);
 void	haut_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx);
-void	draw_tab(t_data *mlx, t_var *var);
+void	draw_tab(t_var *var);
 void	draw_tab_bis(t_data *mlx, t_var var);
 t_pos	get_iso(t_pos pos);
 void	draw_x(t_data *mlx, t_var *var);
 void	draw_y(t_data *mlx, t_var *var);
-void	init_display(t_data *mlx, t_var *var);
+void	init_display(t_var *var);
 t_pos	get_cart(t_pos iso);
+void	ft_init(void *s, size_t n);
 
 #endif
