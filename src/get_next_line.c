@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		ft_free(char *str)
+int	ft_free(char *str)
 {
 	if (!str)
 		return (0);
@@ -21,9 +21,8 @@ int		ft_free(char *str)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line, int ret)
 {
-	int			ret;
 	static char	*temp;
 	char		buff[BUFFER_SIZE + 1];
 
@@ -32,14 +31,15 @@ int		get_next_line(int fd, char **line)
 	ret = 1;
 	while (!ft_is_break_line(temp) && ret != 0)
 	{
-		if ((ret = read(fd, buff, BUFFER_SIZE)) == -1)
+		ret = read(fd, buff, BUFFER_SIZE);
+		if (ret == -1)
 			return (-1);
 		buff[ret] = '\0';
 		temp = ft_strjoin(temp, buff);
 	}
-	if (!(*line = ft_get_line(temp)))
-		return (-1);
-	if (!(temp = ft_get_temp(temp)))
+	*line = ft_get_line(temp);
+	temp = ft_get_temp(temp);
+	if (!*line || !temp)
 		return (-1);
 	if (ret == 0)
 	{

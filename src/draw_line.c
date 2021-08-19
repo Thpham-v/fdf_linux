@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 #include "get_next_line.h"
-	
+
 void	haut_gauche(t_pos pos1, t_pos pos2, t_data *mlx)
 {
 	if (pos1.dx > pos1.dy)
@@ -50,7 +50,7 @@ void	bas_droite(t_pos pos1, t_pos pos2, t_data *mlx)
 		}
 	}
 	else
-		bas_droite_bis(pos1, pos2, mlx);	
+		bas_droite_bis(pos1, pos2, mlx);
 }
 
 void	bas_gauche(t_pos pos1, t_pos pos2, t_data *mlx)

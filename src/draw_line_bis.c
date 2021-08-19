@@ -34,12 +34,12 @@ void	bas_droite_bis(t_pos pos1, t_pos pos2, t_data *mlx)
 	{
 		my_mlx_pixel_put(mlx, pos1.x, pos1.y, 0X00ffb1);
 		pos1.e -= 2 * pos1.dy;
-			if (pos1.e < 0)
-			{
-				pos1.y--;
-				pos1.e += 2 * pos1.dx;
-			}
-			pos1.x--;
+		if (pos1.e < 0)
+		{
+			pos1.y--;
+			pos1.e += 2 * pos1.dx;
+		}
+		pos1.x--;
 	}
 }
 

@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		key_event(int key, t_var *var)
+int	key_event(int key, t_var *var)
 {
 	if (key == ESC)
 		exit_all(var);
@@ -26,7 +26,7 @@ void	my_mlx_pixel_put(t_data *mlx, int x, int y, int color)
 		mlx->addr[y * mlx->line_length / 4 + x] = color;
 }
 
-int		ft_getnbr(char *str)
+int	ft_getnbr(char *str)
 {
 	size_t	i;
 	int		result;

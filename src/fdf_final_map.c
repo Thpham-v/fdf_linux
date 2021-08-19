@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		ft_read_line(char *file, t_var *var)
+int	ft_read_line(char *file, t_var *var)
 {
 	int		ret;
 	int		nb_c_temp;
@@ -28,7 +28,7 @@ int		ft_read_line(char *file, t_var *var)
 		return (-1);
 	while (ret)
 	{
-		ret = get_next_line(var->fd, &line);
+		ret = get_next_line(var->fd, &line, 1);
 		if (line[0] != '\0')
 		{
 			nb_c_temp = ft_count_words(line, ' ');
@@ -36,15 +36,15 @@ int		ft_read_line(char *file, t_var *var)
 				var->nb_c = nb_c_temp;
 			var->nb_l++;
 		}
-			free(line);
+		free(line);
 	}
 	return (ret);
 }
 
-int		ft_malloc_map(t_var *var)
+int	ft_malloc_map(t_var *var)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	var->tab = malloc(sizeof(int *) * var->nb_l);
 	if (!var->tab)
@@ -59,20 +59,19 @@ int		ft_malloc_map(t_var *var)
 	return (1);
 }
 
-void	ft_final_map(char *file, t_var *var)
+void	ft_final_map(char *file, t_var *var, int ret)
 {
 	int		i;
 	int		j;
-	int		ret;
 	char	*line;
 	char	**tab_char;
-	
+
 	i = 0;
 	ret = 1;
 	var->fd = open(file, O_RDONLY);
 	while (ret)
 	{
-		ret = get_next_line(var->fd, &line);
+		ret = get_next_line(var->fd, &line, 1);
 		if (line[0] != '\0')
 		{
 			tab_char = ft_split(line, ' ');
@@ -86,5 +85,5 @@ void	ft_final_map(char *file, t_var *var)
 		}
 		free(line);
 		i++;
-		}
+	}
 }

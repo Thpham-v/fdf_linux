@@ -15,7 +15,7 @@
 
 t_pos	get_iso(t_pos pos)
 {
-	t_pos iso;
+	t_pos	iso;
 
 	iso.x = (pos.x - pos.y);
 	iso.y = (pos.x + pos.y) / 2;

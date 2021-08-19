@@ -13,9 +13,9 @@
 #include "fdf.h"
 #include "get_next_line.h"
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 		return (0);
@@ -25,9 +25,9 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int		ft_is_break_line(char *str)
+int	ft_is_break_line(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -45,15 +45,14 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
-	int		all_len;
 	char	*res;
 
 	if (!s1 && !s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	all_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(res = malloc(sizeof(char) * all_len)))
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!res)
 		return (NULL);
 	while (s1 && s1[i])
 	{
@@ -80,7 +79,8 @@ char	*ft_get_line(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!(res = malloc(sizeof(char) * i + 1)))
+	res = malloc(sizeof(char) * i + 1);
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -104,7 +104,8 @@ char	*ft_get_temp(char *str)
 	j = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!(res = malloc(sizeof(char) * (ft_strlen(str) - i + 1))))
+	res = malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	if (!res)
 		return (NULL);
 	if (i < ft_strlen(str))
 		i++;

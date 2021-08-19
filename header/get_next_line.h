@@ -1,4 +1,4 @@
-  /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
@@ -17,7 +17,7 @@
 #  define BUFFER_SIZE 4096
 # endif
 
-int		get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line, int ret);
 char	*ft_get_temp(char *str);
 char	*ft_get_line(char *str);
 char	*ft_strjoin(char *s1, char *s2);
