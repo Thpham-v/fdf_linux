@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 21:08:06 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/08/19 21:08:10 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/01 23:23:49 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_var
 	int			starty;
 	int			i;
 	int			j;
+	int			verif;
 }				t_var;
 
 typedef struct s_pos
@@ -60,7 +61,7 @@ typedef struct s_pos
 int		key_event(int key, t_var *var);
 int		exit_all(t_var *var);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		ft_read_line(char *file, t_var *var);
+int		ft_read_line(char *file, t_var *var, int ret);
 int		ft_count_words(char *s, char c);
 void	ft_create_tab(char *s, char c, char **tab);
 int		ft_getnbr(char *str);

@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:52:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/08/19 23:40:11 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/01 23:21:23 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,10 @@ void	init_display(t_var *var)
 void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
-	unsigned char	*str;
 
-	str = s;
 	i = -1;
 	while (++i < n)
-	{
-		str[i] = 0;
-	}
-	s = str;
+		((unsigned char *)s)[i] = 0;
 }
 
 int	exit_all(t_var *var)
@@ -90,10 +85,10 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf("Error\nwrong number of arguments\n");
-		return (0);
+		return (1);
 	}
 	ft_bzero(&var, sizeof(t_var));
-	if ((ft_read_line(argv[1], &var) != -1))
+	if ((ft_read_line(argv[1], &var, 1) != -1))
 	{
 		ft_malloc_map(&var);
 		ft_final_map(argv[1], &var, 1);

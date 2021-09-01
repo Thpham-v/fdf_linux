@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 04:17:59 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/01 01:46:32 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/01 23:08:47 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_count_words(char *s, char c)
 
 	i = 0;
 	nb_words = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)

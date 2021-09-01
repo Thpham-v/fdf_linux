@@ -6,23 +6,18 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:49:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/01 01:49:55 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/01 23:21:51 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "get_next_line.h"
 
-int	ft_read_line(char *file, t_var *var)
+int	ft_read_line(char *file, t_var *var, int ret)
 {
-	int		ret;
 	int		nb_c_temp;
 	char	*line;
 
-	var->nb_l = 0;
-	var->nb_c = 0;
-	var->fd = 0;
-	ret = 1;
 	var->fd = open(file, O_RDONLY);
 	if (var->fd == -1)
 		return (-1);
@@ -31,12 +26,18 @@ int	ft_read_line(char *file, t_var *var)
 		ret = get_next_line(var->fd, &line, 1);
 		if (line[0] != '\0')
 		{
-			nb_c_temp = ft_count_words(line, ' ');
-			if (var->nb_c < nb_c_temp)
-				var->nb_c = nb_c_temp;
+			var->nb_c = ft_count_words(line, ' ');
+			if (var->nb_l != 0 && var->nb_c != nb_c_temp)
+				var->verif = 1;
+			nb_c_temp = var->nb_c;
 			var->nb_l++;
 		}
 		free(line);
+	}
+	if (var->verif == 1)
+	{
+		printf("Error\nwrong map\n");
+		exit_all(var);
 	}
 	return (ret);
 }
@@ -82,8 +83,8 @@ void	ft_final_map(char *file, t_var *var, int ret)
 				j++;
 			}
 			ft_free_tab(tab_char);
+			i++;
 		}
 		free(line);
-		i++;
 	}
 }

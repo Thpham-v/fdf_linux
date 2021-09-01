@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:02:16 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/07/01 01:46:41 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:58:40 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	get_next_line(int fd, char **line, int ret)
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	ret = 1;
 	while (!ft_is_break_line(temp) && ret != 0)
 	{
 		ret = read(fd, buff, BUFFER_SIZE);
