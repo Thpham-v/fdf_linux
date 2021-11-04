@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:52:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/01 23:21:23 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:29:18 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ int	main(int argc, char **argv)
 		ft_malloc_map(&var);
 		ft_final_map(argv[1], &var, 1);
 		var.mlx.mlx_ptr = mlx_init();
+		var.mlx.mlx_ptr = NULL;
+		if (var.mlx.mlx_ptr == NULL)
+			exit_all(&var);
 		mlx_get_screen_size(var.mlx.mlx_ptr, &var.mlx.width, &var.mlx.height);
 		init_var_windows(&var);
 		draw_tab(&var);

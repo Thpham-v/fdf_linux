@@ -6,20 +6,33 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:49:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/01 23:21:51 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:12:20 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "get_next_line.h"
 
+int	open_file(char *file, t_var *var)
+{
+	var->fd = open(file, O_DIRECTORY);
+	if (var->fd != -1)
+	{
+		printf("Error it is a directory\n");
+		return (-1);
+	}
+	var->fd = open(file, O_RDONLY);
+	if (var->fd == -1)
+		return (-1);
+	return (0);
+}
+
 int	ft_read_line(char *file, t_var *var, int ret)
 {
 	int		nb_c_temp;
 	char	*line;
 
-	var->fd = open(file, O_RDONLY);
-	if (var->fd == -1)
+	if (open_file(file, var) == -1)
 		return (-1);
 	while (ret)
 	{
