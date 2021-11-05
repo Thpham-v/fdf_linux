@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 21:08:06 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/01 23:23:49 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:19:21 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void	draw_y(t_data *mlx, t_var *var);
 void	init_display(t_var *var);
 t_pos	get_cart(t_pos iso);
 void	ft_init(void *s, size_t n);
+int		arg_error(int argc);
 
 #endif

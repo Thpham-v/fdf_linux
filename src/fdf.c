@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:52:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/11/04 17:29:18 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/05 14:27:46 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,17 @@ void	init_var_windows(t_var *var)
 int	main(int argc, char **argv)
 {
 	t_var	var;
+	int		i;
 
-	if (argc != 2)
-	{
-		printf("Error\nwrong number of arguments\n");
+	i = 0;
+	if (arg_error(argc) == -1)
 		return (1);
-	}
 	ft_bzero(&var, sizeof(t_var));
 	if ((ft_read_line(argv[1], &var, 1) != -1))
 	{
 		ft_malloc_map(&var);
 		ft_final_map(argv[1], &var, 1);
 		var.mlx.mlx_ptr = mlx_init();
-		var.mlx.mlx_ptr = NULL;
 		if (var.mlx.mlx_ptr == NULL)
 			exit_all(&var);
 		mlx_get_screen_size(var.mlx.mlx_ptr, &var.mlx.width, &var.mlx.height);

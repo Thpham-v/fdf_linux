@@ -6,12 +6,24 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 23:51:37 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/01 22:49:25 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/05 14:27:29 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "get_next_line.h"
+
+int	arg_error(int argc)
+{
+	if (*__environ == NULL)
+		return (-1);
+	if (argc != 2)
+	{
+		printf("Error\nwrong number of arguments\n");
+		return (-1);
+	}
+	return (0);
+}
 
 int	key_event(int key, t_var *var)
 {
